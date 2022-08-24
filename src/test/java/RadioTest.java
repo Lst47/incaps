@@ -138,9 +138,9 @@ public class RadioTest {
     public void radioPlusOne() {
         Radio radio = new Radio();
 
-        radio.setRadioPlusOne(4);
+        radio.setRadioPlusOne(8);
 
-        int expected = 5;
+        int expected = 9;
         int actual = radio.getRadioPlus();
 
         Assertions.assertEquals(expected, actual);
@@ -152,7 +152,7 @@ public class RadioTest {
 
         radio.setRadioPlusOne(9);
 
-        int expected = 9;
+        int expected = 0;
         int actual = radio.getRadioPlus();
 
         Assertions.assertEquals(expected, actual);
@@ -170,17 +170,9 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    @Test
-    public void radioMinusOneLessZero() {
-        Radio radio = new Radio();
 
-        radio.setRadioMinusOne(-3);
 
-        int expected = 0;
-        int actual = radio.getRadioMinus();
 
-        Assertions.assertEquals(expected, actual);
-    }
 
     @Test
     public void radioMinusOneMin() {
@@ -188,7 +180,7 @@ public class RadioTest {
 
         radio.setRadioMinusOne(0);
 
-        int expected = 0;
+        int expected = 9;
         int actual = radio.getRadioMinus();
 
         Assertions.assertEquals(expected, actual);

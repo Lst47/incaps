@@ -76,11 +76,11 @@ public class Radio {
     }
 
     public void setRadioPlusOne(int newRadioPlus) {
-        if (newRadioPlus < 9) {
+        if (newRadioPlus <= 9) {
             newRadioPlus = newRadioPlus + 1;
         }
-        if (newRadioPlus >= 9) {
-            newRadioPlus = 9;
+        if (newRadioPlus >= 10) {
+            newRadioPlus = 0;
         }
         radioPlus = newRadioPlus;
     }
@@ -95,7 +95,7 @@ public class Radio {
             newRadioMinus = newRadioMinus - 1;
         }
         if (newRadioMinus <= 0) {
-            newRadioMinus = 0;
+            newRadioMinus = 9;
         }
         radioMinus = newRadioMinus;
     }
