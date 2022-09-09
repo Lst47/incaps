@@ -2,31 +2,50 @@ public class Radio {
     private int currentStation;
     private int currentVolume;
 
+    private int amountStation = 10;
+    private int minStation = 0;
+    private int maxStation = amountStation - 1;
+
+    public Radio(int amountStation){
+        this.amountStation = amountStation;
+        this.maxStation = amountStation - 1;
+
+    }
+    public Radio(){
+        this.amountStation = 10;
+    }
+
+    public int getMinStation(){
+        return minStation;
+    }
+    public int getMaxStation(){
+        return maxStation;
+    }
     public int getCurrentStation() {
         return currentStation;
     }
 
     public void setCurrentStation(int currentStation) {
-        if (currentStation < 0) {
-            currentStation = 9;
+        if (currentStation < minStation) {
+            currentStation = maxStation;
         }
-        if (currentStation > 9) {
+        if (currentStation > maxStation) {
             return;
         }
         this.currentStation = currentStation;
     }
 
     public void setNextStation() {
-        if (currentStation == 9) {
-            currentStation = 0;
+        if (currentStation == maxStation) {
+            currentStation = minStation;
         } else {
             currentStation++;
         }
     }
 
     public void setPrevStation() {
-        if (currentStation <= 0) {
-            currentStation = 9;
+        if (currentStation <= minStation) {
+            currentStation = maxStation;
         } else {
             currentStation--;
         }
@@ -40,8 +59,8 @@ public class Radio {
         if (currentVolume < 0 ){
             currentVolume = 0;
         }
-        if (currentVolume > 10){
-            currentVolume = 10;
+        if (currentVolume > 100){
+            currentVolume = 100;
         }
         this.currentVolume = currentVolume;
 
@@ -49,7 +68,7 @@ public class Radio {
 
 
     public void setIncreaseVolume() {
-        if (currentVolume < 10) {
+        if (currentVolume < 100) {
             currentVolume++;
         }
     }
